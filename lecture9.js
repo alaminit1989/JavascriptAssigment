@@ -118,4 +118,4 @@ var li = empinfo(list, function(d){
     return newarrempinfo;
 })
 
-li
+li;

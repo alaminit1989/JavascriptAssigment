@@ -100,22 +100,25 @@ var list = [
 ];
 
 function empinfo(empage, calbackf){
-    var emparr = []  
-    for(var i = 0; i<empage.length; i++){
-        emparr.push(empage[i])
-    }       
-    return  calbackf(emparr);     
+    return  calbackf(empage);     
+}
+ 
+function emplist(age, ret){
+    var s = empinfo(list, function(d){
+        var newarrempinfo = []
+     
+        for(var j = 0; j<d.length; j++){
+            if(d[j].age < age){
+             newarrempinfo.push(d[j].name)
+            }
+        }  
+         return ret(newarrempinfo);
+     })
+     return s;
 }
 
-var li = empinfo(list, function(d){
-   var newarrempinfo = []
-
-   for(var j = 0; j<d.length; j++){
-       if(d[j].age < 13){
-        newarrempinfo.push(d[j].name)
-       }
-   }  
-    return newarrempinfo;
+var finalOutput = emplist(13, function(w){
+    return w;
 })
 
-li;
+finalOutput

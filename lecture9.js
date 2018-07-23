@@ -6,6 +6,8 @@
 
 /*===== Callback function ===================================================*/
 /* =========== Example 01*/
+
+
 var obj={
     name: 'Md. Al-Amin',
     age: 30,
@@ -23,6 +25,7 @@ obj
 
 
 /* ========Example 02*/
+
 var arr = [1,2,3,4,5,6,7,8]
 
 function valuecalculation(arg, cbf){
@@ -82,3 +85,37 @@ var mapresult2 = mymap(arr, function(a){
 })
 
 mapresult2
+
+/*============================================== */
+
+var list = [
+    {name: "Md. Al-Amin", age: "16"},
+    {name: "Said", age: "13"},
+    {name: "Ruhul", age: "11"},
+    {name: "Bony", age: "12"},
+    {name: "Habib", age: "16"},
+    {name: "Monir", age: "9"},
+    {name: "Konock", age: "13"},
+    {name: "Deb Kanti", age: "16"}    
+];
+
+function empinfo(empage, calbackf){
+    var emparr = []  
+    for(var i = 0; i<empage.length; i++){
+        emparr.push(empage[i])
+    }       
+    return  calbackf(emparr);     
+}
+
+var li = empinfo(list, function(d){
+   var newarrempinfo = []
+
+   for(var j = 0; j<d.length; j++){
+       if(d[j].age < 13){
+        newarrempinfo.push(d[j].name)
+       }
+   }  
+    return newarrempinfo;
+})
+
+li
